@@ -39,10 +39,10 @@ df['HasCrCard'] = df['HasCrCard'].map(yes_no_map)
 df['IsActiveMember'] = df['IsActiveMember'].map(yes_no_map)
 
 # Keep only rows where gender is 'Male' or 'Female'
-df = df[df['Gender'].isin(['Male', 'Female'])]
+df = df[df['Gender'].isin(['Male', 'Female'])] 
 
 # Convert 'Age' to numeric and filter for valid age range (18 to 100)
-df['Age'] = pd.to_numeric(df['Age'], errors='coerce')
+df['Age'] = pd.to_numeric(df['Age'], errors='coerce') #coerce converts invalid parsing to NaN
 df = df[df['Age'].between(18, 100)]
 
 # Convert 'Balance' to numeric and remove negative balances

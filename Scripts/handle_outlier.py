@@ -17,14 +17,19 @@ def remove_outliers_iqr(dataframe, column):
     IQR = Q3 - Q1                          # Interquartile range
     lower_bound = Q1 - 1.5 * IQR           # Lower limit for outlier detection
     upper_bound = Q3 + 1.5 * IQR           # Upper limit for outlier detection
+
+    #print iqr, lower_bound, upper_bound
+    print(f"[Outlier Handling] {column} - IQR: {IQR}, Lower Bound: {lower_bound}, Upper Bound: {upper_bound}")
     # Return rows within the IQR range (i.e., without outliers)
     return dataframe[(dataframe[column] >= lower_bound) & (dataframe[column] <= upper_bound)]
+    
+
 
 # Apply IQR filtering to each numeric column listed in `columns_to_check`
 for col in columns_to_check:
     if col in df.columns:
         df = remove_outliers_iqr(df, col)  # Remove outliers from each column
-        # print(f"Removed outliers from {col}: {df[col].describe()}")
+        
 
 # Save the result to a new CSV file
 output_file = 'outlier_handled_exl_credit_card_churn_data.csv'
