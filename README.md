@@ -37,8 +37,3 @@ python Scripts/data_cleaning.py
 python Scripts/feature_engineering.py
 python Scripts/random_forest.py
 
----
-
-If you want, I can also **auto-generate the `requirements.txt`** by scanning all your `.py` scripts so it’s ready for GitHub. That will make your project plug-and-play for anyone cloning it.  
-
-Do you want me to do that next?
